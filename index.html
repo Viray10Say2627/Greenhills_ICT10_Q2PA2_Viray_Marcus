@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <title>Set Operators</title>
+
+    <style>
+        :root {
+            --bg: #1f2227;
+            --panel: #2a2e35;
+            --input: #353a42;
+            --border: #454b55;
+            --text: #e6e8eb;
+            --muted: #9aa1ac;
+            --blue: #3b82f6;
+            --blue-dark: #2f6fe0;
+            --blue-soft: rgba(59, 130, 246, 0.3);
+            --blue-text: #9cc0ff;
+            --ok-bg: rgba(59, 130, 246, 0.16);
+            --err-bg: rgba(190, 110, 110, 0.16);
+            --err-text: #e0a3a3;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        h1 {
+            margin: 0 0 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 650;
+            letter-spacing: -0.01em;
+        }
+
+        form {
+            width: 100%;
+            max-width: 22rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.75rem;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--blue);
+            border-radius: 6px;
+        }
+
+        form br { display: none; }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.7rem 0.85rem;
+            font: inherit;
+            color: var(--text);
+            background: var(--input);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        input[type="text"]::placeholder { color: var(--muted); }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-soft);
+        }
+
+        input[type="button"] {
+            margin-top: 0.25rem;
+            padding: 0.7rem 1rem;
+            font: inherit;
+            font-weight: 600;
+            color: #fff;
+            background: var(--blue);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        input[type="button"]:hover { background: var(--blue-dark); }
+
+        input[type="button"]:focus-visible {
+            outline: 3px solid var(--blue-soft);
+            outline-offset: 2px;
+        }
+
+        #result {
+            width: 100%;
+            max-width: 22rem;
+            margin-top: 1rem;
+        }
+
+        #result:empty { display: none; }
+
+        #result.success,
+        #result.error {
+            padding: 0.85rem 1rem;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+
+        #result.success {
+            background: var(--ok-bg);
+            border-color: var(--blue);
+            color: var(--blue-text);
+        }
+
+        #result.error {
+            background: var(--err-bg);
+            border-color: #b86f6f;
+            color: var(--err-text);
+        }
+    </style>
+
+</head>
+<body>
+
+      <h1>Add a new member to Varsity</h1>
+        <form>
+            <input type="text" id="first_name" placeholder="Enter your First name"><br>
+            <input type="text" id="last_name" placeholder="Enter your Last name"><br>
+            <input type="button" py-click="add_member" value="Add Player">
+        </form>
+
+        <div id="results"></div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
